@@ -8,10 +8,6 @@
         "env": []
     },
     {
-        "id": "victron-client-id",
-        "type": "victron-client"
-    },
-    {
         "id": "718f5fabaac10b79",
         "type": "ui-base",
         "name": "Dashboard",
@@ -84,12 +80,13 @@
         "name": "LPG",
         "page": "8dea16c6d0827c7a",
         "width": "3",
-        "height": "2",
+        "height": "3",
         "order": 3,
         "showTitle": true,
         "className": "",
         "visible": "true",
-        "disabled": "false"
+        "disabled": "false",
+        "groupType": "default"
     },
     {
         "id": "d0be2aa0c9296d83",
@@ -416,7 +413,7 @@
     {
         "id": "24cb15692531f81d",
         "type": "ui-group",
-        "name": "WiFi",
+        "name": "4G",
         "page": "4505ba7932cfd313",
         "width": "3",
         "height": "1",
@@ -424,7 +421,8 @@
         "showTitle": true,
         "className": "",
         "visible": "true",
-        "disabled": "false"
+        "disabled": "false",
+        "groupType": "default"
     },
     {
         "id": "ff945a6df9c02dbf",
@@ -682,6 +680,12 @@
         "groupType": "default"
     },
     {
+        "id": "victron-client-id",
+        "type": "victron-client",
+        "showValues": true,
+        "contextStore": true
+    },
+    {
         "id": "322d6acb8e1cc698",
         "type": "ui-radio-group",
         "z": "f8aa3235cf2ec5d8",
@@ -741,6 +745,7 @@
         "initial": "",
         "name": "",
         "onlyChanges": true,
+        "outputs": 1,
         "x": 180,
         "y": 100,
         "wires": [
@@ -776,6 +781,7 @@
         "initial": "",
         "name": "",
         "onlyChanges": false,
+        "outputs": 0,
         "x": 900,
         "y": 100,
         "wires": []
@@ -823,6 +829,7 @@
         "name": "",
         "onlyChanges": true,
         "roundValues": "0",
+        "outputs": 1,
         "x": 220,
         "y": 160,
         "wires": [
@@ -911,6 +918,7 @@
         },
         "name": "",
         "onlyChanges": false,
+        "outputs": 0,
         "x": 940,
         "y": 160,
         "wires": []
@@ -933,6 +941,7 @@
         "name": "",
         "onlyChanges": true,
         "roundValues": "0",
+        "outputs": 1,
         "x": 160,
         "y": 340,
         "wires": [
@@ -973,17 +982,26 @@
         "chartType": "line",
         "category": "topic",
         "categoryType": "msg",
+        "xAxisLabel": "",
         "xAxisProperty": "",
-        "xAxisPropertyType": "msg",
+        "xAxisPropertyType": "property",
         "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "HH:mm",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
         "yAxisProperty": "",
+        "yAxisPropertyType": "property",
         "ymin": "0",
         "ymax": "101",
+        "bins": "",
         "action": "append",
+        "stackSeries": false,
         "pointShape": "line",
         "pointRadius": "1",
         "showLegend": false,
-        "removeOlder": "3",
+        "removeOlder": "2",
         "removeOlderUnit": "86400",
         "removeOlderPoints": "",
         "colors": [
@@ -997,9 +1015,18 @@
             "#9467bd",
             "#c5b0d5"
         ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
         "width": "9",
         "height": "6",
         "className": "",
+        "interpolation": "linear",
         "x": 940,
         "y": 580,
         "wires": [
@@ -1024,6 +1051,7 @@
         "name": "",
         "onlyChanges": true,
         "roundValues": "0",
+        "outputs": 1,
         "x": 180,
         "y": 580,
         "wires": [
@@ -1051,6 +1079,7 @@
         "name": "",
         "onlyChanges": true,
         "roundValues": "0",
+        "outputs": 1,
         "x": 160,
         "y": 700,
         "wires": [
@@ -1073,17 +1102,24 @@
         "categoryType": "msg",
         "xAxisLabel": "",
         "xAxisProperty": "",
-        "xAxisPropertyType": "msg",
+        "xAxisPropertyType": "property",
         "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "HH:mm",
+        "xmin": "",
+        "xmax": "",
         "yAxisLabel": "",
         "yAxisProperty": "",
+        "yAxisPropertyType": "property",
         "ymin": "-2",
         "ymax": "700",
+        "bins": "",
         "action": "append",
+        "stackSeries": false,
         "pointShape": "line",
         "pointRadius": "0",
         "showLegend": false,
-        "removeOlder": "3",
+        "removeOlder": "2",
         "removeOlderUnit": "86400",
         "removeOlderPoints": "",
         "colors": [
@@ -1097,9 +1133,18 @@
             "#9467bd",
             "#c5b0d5"
         ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
         "width": "9",
         "height": "6",
         "className": "",
+        "interpolation": "linear",
         "x": 930,
         "y": 700,
         "wires": [
@@ -1123,10 +1168,14 @@
         "xAxisType": "category",
         "xAxisFormat": "",
         "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
         "yAxisLabel": "",
         "yAxisProperty": "",
+        "yAxisPropertyType": "property",
         "ymin": "0",
         "ymax": "100",
+        "bins": "",
         "action": "replace",
         "stackSeries": false,
         "pointShape": "circle",
@@ -1157,7 +1206,8 @@
         "width": "3",
         "height": "5",
         "className": "my-chart-vertical-large",
-        "x": 810,
+        "interpolation": "linear",
+        "x": 770,
         "y": 820,
         "wires": [
             []
@@ -1180,10 +1230,14 @@
         "xAxisType": "category",
         "xAxisFormat": "",
         "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
         "yAxisLabel": "",
         "yAxisProperty": "",
+        "yAxisPropertyType": "property",
         "ymin": "0",
         "ymax": "100",
+        "bins": "",
         "action": "replace",
         "stackSeries": false,
         "pointShape": "circle",
@@ -1214,7 +1268,8 @@
         "width": "3",
         "height": "5",
         "className": "my-chart-vertical-large",
-        "x": 800,
+        "interpolation": "linear",
+        "x": 760,
         "y": 880,
         "wires": [
             []
@@ -1342,6 +1397,7 @@
         "name": "",
         "onlyChanges": true,
         "roundValues": "no",
+        "outputs": 1,
         "x": 170,
         "y": 940,
         "wires": [
@@ -1555,17 +1611,26 @@
         "chartType": "line",
         "category": "topic",
         "categoryType": "msg",
+        "xAxisLabel": "",
         "xAxisProperty": "",
         "xAxisPropertyType": "property",
         "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "HH:mm",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
         "yAxisProperty": "",
+        "yAxisPropertyType": "property",
         "ymin": "-2",
         "ymax": "204",
+        "bins": "",
         "action": "append",
+        "stackSeries": false,
         "pointShape": "line",
         "pointRadius": "0",
         "showLegend": false,
-        "removeOlder": "3",
+        "removeOlder": "2",
         "removeOlderUnit": "86400",
         "removeOlderPoints": "",
         "colors": [
@@ -1579,9 +1644,18 @@
             "#9467bd",
             "#c5b0d5"
         ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
         "width": "6",
         "height": "6",
         "className": "",
+        "interpolation": "linear",
         "x": 1930,
         "y": 840,
         "wires": [
@@ -1871,6 +1945,7 @@
         },
         "name": "",
         "onlyChanges": false,
+        "outputs": 1,
         "x": 180,
         "y": 420,
         "wires": [
@@ -1896,6 +1971,7 @@
         },
         "name": "",
         "onlyChanges": false,
+        "outputs": 1,
         "x": 200,
         "y": 480,
         "wires": [
@@ -2387,6 +2463,7 @@
         "initial": "",
         "name": "",
         "onlyChanges": false,
+        "outputs": 0,
         "x": 330,
         "y": 1580,
         "wires": []
@@ -2408,10 +2485,14 @@
         "xAxisType": "category",
         "xAxisFormat": "",
         "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
         "yAxisLabel": "",
         "yAxisProperty": "",
+        "yAxisPropertyType": "property",
         "ymin": "0",
         "ymax": "100",
+        "bins": "",
         "action": "append",
         "stackSeries": true,
         "pointShape": "circle",
@@ -2440,8 +2521,9 @@
         ],
         "gridColorDefault": true,
         "width": "3",
-        "height": "1",
+        "height": "3",
         "className": "",
+        "interpolation": "linear",
         "x": 1970,
         "y": 1300,
         "wires": [
@@ -2460,7 +2542,7 @@
         "width": 0,
         "height": 0,
         "head": "",
-        "format": "div.my-row-span-3 {\n    grid-row-end: span 3;\n}\n\ndiv.my-chart-vertical-large {\n    height: 278px;\n}",
+        "format": "div.my-row-span-3 {\n    grid-row-end: span 3;\n}\n\ndiv.my-chart-vertical-large {\n    height: 272px;\n}",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
@@ -3021,40 +3103,16 @@
         "name": "Venus GUI v1",
         "order": 1,
         "width": "9",
-        "height": "8",
+        "height": "9",
         "head": "",
-        "format": "<template>\n    <div style=\"padding:0;margin:0;\">\n        <iframe id=\"xxx\" width=\"100%\" height=\"100%\"></iframe>\n    </div>\n</template>\n<script>\n    export default {\n        mounted() {\n            document.getElementById(\"xxx\").src = 'http://' + window.location.hostname + \":80\"\n            document.getElementById(\"xxx\").focus()\n        }\n    }\n</script>",
+        "format": "<template>\n    <div style=\"padding:0;margin:0;height:415px;\">\n        <iframe id=\"xxx\" width=\"100%\" height=\"100%\" frameborder=\"0\" style=\"border: 0;\"></iframe>    </div>\n</template>\n<script>\n    export default {\n        mounted() {\n            document.getElementById(\"xxx\").src = 'http://' + window.location.hostname + \":80\"\n            document.getElementById(\"xxx\").focus()\n            document.querySelector(\".v-card-text\").style.setProperty('padding', '0');\n        }\n    }\n</script>",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
         "templateScope": "local",
-        "className": "",
+        "className": "mman-no-padding",
         "x": 160,
         "y": 2660,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "60cd73a57cb235a8",
-        "type": "ui-template",
-        "z": "f8aa3235cf2ec5d8",
-        "group": "",
-        "page": "",
-        "ui": "718f5fabaac10b79",
-        "name": "disable chart.js tooltips",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "head": "",
-        "format": "<template>\n</template>\n\n<script>\n    export default {\n        mounted() {\n          Chart.defaults.plugins.tooltip.enabled = false;\n        },\n    }\n</script>\n\n<style>\n</style>",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "widget:ui",
-        "className": "",
-        "x": 170,
-        "y": 1440,
         "wires": [
             []
         ]
@@ -3103,7 +3161,9 @@
         "className": "",
         "x": 1010,
         "y": 820,
-        "wires": []
+        "wires": [
+            []
+        ]
     },
     {
         "id": "64fc114dd4fee87e",
@@ -3136,7 +3196,7 @@
         "id": "c0a2085271535236",
         "type": "exec",
         "z": "f8aa3235cf2ec5d8",
-        "command": "sudo nmcli connection down Atlantis",
+        "command": "sudo nmcli connection down 4G",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -3144,7 +3204,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 450,
+        "x": 430,
         "y": 2060,
         "wires": [
             [],
@@ -3175,7 +3235,7 @@
         "id": "63a860212b3c59e3",
         "type": "exec",
         "z": "f8aa3235cf2ec5d8",
-        "command": "nmcli device show wlan0|grep -v '\\(DEVICE\\|TYPE\\|HWADDR\\|MTU\\|PATH\\|ROUTE\\|GATEWAY\\)'",
+        "command": "nmcli device show usb0|grep -v '\\(DEVICE\\|TYPE\\|HWADDR\\|MTU\\|PATH\\|ROUTE\\|GATEWAY\\)'",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -3254,7 +3314,7 @@
         "id": "b6fbbc7f910721ed",
         "type": "exec",
         "z": "f8aa3235cf2ec5d8",
-        "command": "sudo nmcli connection up Atlantis",
+        "command": "sudo nmcli connection up 4G",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -3262,7 +3322,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 440,
+        "x": 430,
         "y": 2140,
         "wires": [
             [],
@@ -3316,7 +3376,9 @@
         "className": "",
         "x": 1000,
         "y": 880,
-        "wires": []
+        "wires": [
+            []
+        ]
     },
     {
         "id": "05814746cc5df126",
@@ -3451,14 +3513,16 @@
         "className": "",
         "x": 1970,
         "y": 1400,
-        "wires": []
+        "wires": [
+            []
+        ]
     },
     {
         "id": "4fba035990245d4f",
         "type": "ui-radio-group",
         "z": "f8aa3235cf2ec5d8",
         "group": "ba338f1031239462",
-        "name": "",
+        "name": "x",
         "label": "",
         "order": 1,
         "width": 0,
@@ -3481,7 +3545,7 @@
         "topic": "topic",
         "topicType": "msg",
         "className": "",
-        "x": 510,
+        "x": 490,
         "y": 60,
         "wires": [
             [
@@ -3555,6 +3619,7 @@
         "name": "",
         "onlyChanges": false,
         "roundValues": "no",
+        "outputs": 1,
         "x": 200,
         "y": 2500,
         "wires": [
@@ -3601,7 +3666,7 @@
         "width": 0,
         "height": 0,
         "head": "",
-        "format": "<template>\n    <Teleport v-if=\"mounted\" to=\"#app-bar-actions\">\n        <v-icon icon=\"mdi-water\" color=\"#ffffff55\"></v-icon>\n        <span color=\"#ffffff\" style=\"font-size: 1.25rem\">{{water_pump_temperature}} ºC</span>\n        &nbsp;&nbsp;\n        <v-icon icon=\"mdi-battery-high\" color=\"#ffffff55\"></v-icon>\n        <span color=\"#ffffff\" style=\"font-size: 1.25rem\">{{battery_temperature}} ºC</span>\n        &nbsp;&nbsp;\n        <v-icon icon=\"mdi-raspberry-pi\" color=\"#ffffff55\"></v-icon>\n        <span color=\"#ffffff\" style=\"font-size: 1.25rem\">{{cpu_temperature}} ºC</span>        \n        &nbsp;&nbsp;\n        <v-icon v-if=\"is_connected_to_wifi\" icon=\"mdi-wifi\" color=\"#ffffff\"></v-icon>\n        <v-icon v-if=\"!is_connected_to_venus\" icon=\"mdi-alert\" color=\"#ffffff\"></v-icon>\n        &nbsp;&nbsp;\n    </Teleport>\n</template>\n<script>\n    export default {\n        data() {\n            return {\n                mounted: false,\n                is_connected_to_wifi: true,\n                is_connected_to_venus: false,\n                cpu_temperature: \"0.0\",\n                battery_temperature: \"0.0\",\n                water_pump_temperature: \"0.0\"\n            }\n        },\n        mounted() {\n            this.mounted = true\n        },\n        watch: {\n            msg: function() {\n                this.is_connected_to_wifi = this.msg.payload.wifi_network_name?.length > 0 ?? false\n                this.is_connected_to_venus = this.msg.payload.is_alive ?? false\n                this.cpu_temperature = this.msg.payload.cpu_temperature ?? \"0.0\"\n                this.battery_temperature = this.msg.payload.battery_temperature ?? \"0.0\"\n                this.water_pump_temperature = this.msg.payload.water_pump_temperature ?? \"0.0\"\n            }\n        }\n    }\n</script>",
+        "format": "<template>\n    <Teleport v-if=\"mounted\" to=\"#app-bar-actions\">\n        <v-icon icon=\"mdi-water\" color=\"#ffffff55\"></v-icon>\n        <span color=\"#ffffff\" style=\"font-size: 1.25rem\">{{water_pump_temperature}} ºC</span>\n        &nbsp;&nbsp;\n        <v-icon icon=\"mdi-battery-high\" color=\"#ffffff55\"></v-icon>\n        <span color=\"#ffffff\" style=\"font-size: 1.25rem\">{{battery_temperature}} ºC</span>\n        &nbsp;&nbsp;\n        <v-icon icon=\"mdi-raspberry-pi\" color=\"#ffffff55\"></v-icon>\n        <span color=\"#ffffff\" style=\"font-size: 1.25rem\">{{cpu_temperature}} ºC</span>        \n        &nbsp;&nbsp;\n        <v-icon v-if=\"is_connected_to_wifi\" icon=\"mdi-signal-cellular-3\" color=\"#ffffff\"></v-icon>\n        <v-icon v-if=\"!is_connected_to_venus\" icon=\"mdi-alert\" color=\"#ffffff\"></v-icon>\n        &nbsp;&nbsp;\n    </Teleport>\n</template>\n<script>\n    export default {\n        data() {\n            return {\n                mounted: false,\n                is_connected_to_wifi: true,\n                is_connected_to_venus: false,\n                cpu_temperature: \"0.0\",\n                battery_temperature: \"0.0\",\n                water_pump_temperature: \"0.0\"\n            }\n        },\n        mounted() {\n            this.mounted = true\n        },\n        watch: {\n            msg: function() {\n                this.is_connected_to_wifi = this.msg.payload.wifi_network_name?.length > 0 ?? false\n                this.is_connected_to_venus = this.msg.payload.is_alive ?? false\n                this.cpu_temperature = this.msg.payload.cpu_temperature ?? \"0.0\"\n                this.battery_temperature = this.msg.payload.battery_temperature ?? \"0.0\"\n                this.water_pump_temperature = this.msg.payload.water_pump_temperature ?? \"0.0\"\n            }\n        }\n    }\n</script>",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
@@ -3617,7 +3682,7 @@
         "id": "8b577b52f92292fb",
         "type": "exec",
         "z": "f8aa3235cf2ec5d8",
-        "command": "nmcli device show wlan0|grep 'GENERAL.CONNECTION'|cut -d : -f 2|xargs echo -n|sed -e 's/-//g'",
+        "command": "nmcli device show usb0|grep 'GENERAL.CONNECTION'|cut -d : -f 2|xargs echo -n|sed -e 's/-//g'",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -3774,14 +3839,14 @@
         "name": "Venus GUI v2",
         "order": 1,
         "width": "9",
-        "height": "8",
+        "height": "9",
         "head": "",
-        "format": "<template>\n    <div style=\"padding:0;margin:0;\">\n       <iframe id=\"xxx\" width=\"100%\" height=\"100%\"></iframe>\n    </div>\n</template>\n<script>\n    export default {\n        mounted() {\n            document.getElementById(\"xxx\").src = 'http://' + window.location.hostname + \":80/gui-v2\"\n            document.getElementById(\"xxx\").focus()\n        }\n    }\n</script>",
+        "format": "<template>\n    <div style=\"padding:0;margin:0;height:415px;\">\n        <iframe id=\"xxx\" width=\"100%\" height=\"100%\" frameborder=\"0\" style=\"border: 0;\"></iframe>\n    </div>\n</template>\n<script>\n    export default {\n        mounted() {\n            document.getElementById(\"xxx\").src = 'http://' + window.location.hostname + \":80/gui-v2\"\n            document.getElementById(\"xxx\").focus()\n            document.querySelector(\".v-card-text\").style.setProperty('padding', '0');        \n        }\n    }\n</script>",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
         "templateScope": "local",
-        "className": "",
+        "className": "mman-no-padding",
         "x": 160,
         "y": 2720,
         "wires": [
@@ -3798,14 +3863,14 @@
         "name": "Venus HTML5 App",
         "order": 1,
         "width": "9",
-        "height": "8",
+        "height": "9",
         "head": "",
-        "format": "<template>\n    <div style=\"padding:0;margin:0;\">\n        <iframe id=\"xxx\" width=\"100%\" height=\"100%\"></iframe>\n    </div>\n</template>\n<script>\n    export default {\n        mounted() {\n            document.getElementById(\"xxx\").src = 'http://' + window.location.hostname + \":80/app\"\n            document.getElementById(\"xxx\").focus()\n        }\n    }\n</script>",
+        "format": "<template>\n    <div style=\"padding:0;margin:0;height:415px;\">\n        <iframe id=\"xxx\" width=\"100%\" height=\"100%\" frameborder=\"0\" style=\"border: 0;\"></iframe>    </div>\n</template>\n<script>\n    export default {\n        mounted() {\n            document.getElementById(\"xxx\").src = 'http://' + window.location.hostname + \":80/app\"\n            document.getElementById(\"xxx\").focus()\n            document.querySelector(\".v-card-text\").style.setProperty('padding', '0');        \n        }\n    }\n</script>",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
         "templateScope": "local",
-        "className": "",
+        "className": "mman-no-padding",
         "x": 170,
         "y": 2780,
         "wires": [
@@ -3998,6 +4063,7 @@
         "name": "",
         "onlyChanges": false,
         "roundValues": "1",
+        "outputs": 1,
         "x": 200,
         "y": 3000,
         "wires": [
@@ -4039,6 +4105,7 @@
         "name": "",
         "onlyChanges": true,
         "roundValues": "1",
+        "outputs": 1,
         "x": 190,
         "y": 3100,
         "wires": [
@@ -4170,21 +4237,21 @@
         "xAxisPropertyType": "property",
         "xAxisType": "time",
         "xAxisFormat": "",
-        "xAxisFormatType": "auto",
+        "xAxisFormatType": "HH:mm",
         "xmin": "",
         "xmax": "",
         "yAxisLabel": "",
         "yAxisProperty": "",
         "yAxisPropertyType": "property",
-        "ymin": "0",
-        "ymax": "40",
+        "ymin": "-10",
+        "ymax": "70",
         "bins": "",
         "action": "append",
         "stackSeries": false,
         "pointShape": "line",
         "pointRadius": "1",
         "showLegend": true,
-        "removeOlder": "3",
+        "removeOlder": "2",
         "removeOlderUnit": "86400",
         "removeOlderPoints": "",
         "colors": [
@@ -4415,6 +4482,324 @@
         "wires": [
             [
                 "0a60c703b432a505"
+            ]
+        ]
+    },
+    {
+        "id": "a7e943b36d7cc78b",
+        "type": "ui-template",
+        "z": "f8aa3235cf2ec5d8",
+        "group": "",
+        "page": "",
+        "ui": "718f5fabaac10b79",
+        "name": "disable tooltips",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "/* Hide all eCharts tooltips */\n.echarts-tooltip,\ndiv[class*=\"tooltip\"],\n[class*=\"echarts\"] div[style*=\"pointer-events\"] {\n    display: none !important;\n    visibility: hidden !important;\n}",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "site:style",
+        "className": "",
+        "x": 140,
+        "y": 1440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ac7f79599b890781",
+        "type": "inject",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "disable tooltips",
+        "props": [
+            {
+                "p": "ui_update",
+                "v": "{\"chartOptions\":{\"tooltip\":{\"show\":false},\"animation\":false}}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 160,
+        "y": 1300,
+        "wires": [
+            [
+                "619828c0ffc1133a",
+                "84ce4ebacee923fb",
+                "eb5df2a9ca8827ca",
+                "e61b8f69af82c175",
+                "f03c525355fcc6f1",
+                "09ab40b0d2fb0867",
+                "f089c972a639d0e8",
+                "76e81974ab2ff53b",
+                "b12ba91b5d1390f4"
+            ]
+        ]
+    },
+    {
+        "id": "619828c0ffc1133a",
+        "type": "link out",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "5abca726384ceb1d"
+        ],
+        "x": 275,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "5abca726384ceb1d",
+        "type": "link in",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link in 1",
+        "links": [
+            "619828c0ffc1133a"
+        ],
+        "x": 1885,
+        "y": 1360,
+        "wires": [
+            [
+                "cecae7b9de626341"
+            ]
+        ]
+    },
+    {
+        "id": "84ce4ebacee923fb",
+        "type": "link out",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link out 2",
+        "mode": "link",
+        "links": [
+            "f5646d80965775d9"
+        ],
+        "x": 275,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "f5646d80965775d9",
+        "type": "link in",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link in 2",
+        "links": [
+            "84ce4ebacee923fb"
+        ],
+        "x": 1885,
+        "y": 1260,
+        "wires": [
+            [
+                "f231abf29a762452"
+            ]
+        ]
+    },
+    {
+        "id": "eb5df2a9ca8827ca",
+        "type": "link out",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link out 3",
+        "mode": "link",
+        "links": [
+            "50c6a1aa765d2434"
+        ],
+        "x": 275,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "50c6a1aa765d2434",
+        "type": "link in",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link in 3",
+        "links": [
+            "eb5df2a9ca8827ca"
+        ],
+        "x": 1565,
+        "y": 1180,
+        "wires": [
+            [
+                "01b0874bb51dd445"
+            ]
+        ]
+    },
+    {
+        "id": "e61b8f69af82c175",
+        "type": "link out",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link out 4",
+        "mode": "link",
+        "links": [
+            "e9f186952b9dde6a"
+        ],
+        "x": 275,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "e9f186952b9dde6a",
+        "type": "link in",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link in 4",
+        "links": [
+            "e61b8f69af82c175"
+        ],
+        "x": 1785,
+        "y": 880,
+        "wires": [
+            [
+                "532f8cf32bd3497c"
+            ]
+        ]
+    },
+    {
+        "id": "f03c525355fcc6f1",
+        "type": "link out",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link out 5",
+        "mode": "link",
+        "links": [
+            "e727e1298425da0a"
+        ],
+        "x": 275,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "e727e1298425da0a",
+        "type": "link in",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link in 5",
+        "links": [
+            "f03c525355fcc6f1"
+        ],
+        "x": 785,
+        "y": 620,
+        "wires": [
+            [
+                "ab9594709675199f"
+            ]
+        ]
+    },
+    {
+        "id": "09ab40b0d2fb0867",
+        "type": "link out",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link out 6",
+        "mode": "link",
+        "links": [
+            "832bcea62f5866a2"
+        ],
+        "x": 275,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "832bcea62f5866a2",
+        "type": "link in",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link in 6",
+        "links": [
+            "09ab40b0d2fb0867"
+        ],
+        "x": 785,
+        "y": 740,
+        "wires": [
+            [
+                "67b30e90fc149ad2"
+            ]
+        ]
+    },
+    {
+        "id": "f089c972a639d0e8",
+        "type": "link out",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link out 7",
+        "mode": "link",
+        "links": [
+            "18123c339a8141c5"
+        ],
+        "x": 275,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "18123c339a8141c5",
+        "type": "link in",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link in 7",
+        "links": [
+            "f089c972a639d0e8"
+        ],
+        "x": 665,
+        "y": 800,
+        "wires": [
+            [
+                "c8c2033f38bb673a"
+            ]
+        ]
+    },
+    {
+        "id": "76e81974ab2ff53b",
+        "type": "link out",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link out 8",
+        "mode": "link",
+        "links": [
+            "6160881a88975b80"
+        ],
+        "x": 275,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "6160881a88975b80",
+        "type": "link in",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link in 8",
+        "links": [
+            "76e81974ab2ff53b"
+        ],
+        "x": 665,
+        "y": 900,
+        "wires": [
+            [
+                "2dbf19b7bcaa6a45"
+            ]
+        ]
+    },
+    {
+        "id": "b12ba91b5d1390f4",
+        "type": "link out",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link out 9",
+        "mode": "link",
+        "links": [
+            "2d3e19c444d5340e"
+        ],
+        "x": 275,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "2d3e19c444d5340e",
+        "type": "link in",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "link in 9",
+        "links": [
+            "b12ba91b5d1390f4"
+        ],
+        "x": 1215,
+        "y": 3180,
+        "wires": [
+            [
+                "ac8954fd52b8e9dd"
             ]
         ]
     }
