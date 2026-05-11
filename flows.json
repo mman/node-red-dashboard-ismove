@@ -2,7 +2,15 @@
     {
         "id": "f8aa3235cf2ec5d8",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Dashboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2a88d4a90841add0",
+        "type": "tab",
+        "label": "HomeKit Integration",
         "disabled": false,
         "info": "",
         "env": []
@@ -423,19 +431,6 @@
         "visible": "true",
         "disabled": "false",
         "groupType": "default"
-    },
-    {
-        "id": "ff945a6df9c02dbf",
-        "type": "ui-group",
-        "name": "WiFi Status",
-        "page": "4505ba7932cfd313",
-        "width": "9",
-        "height": "1",
-        "order": 4,
-        "showTitle": true,
-        "className": "",
-        "visible": "true",
-        "disabled": "false"
     },
     {
         "id": "376dd725c0ba26d1",
@@ -3209,47 +3204,6 @@
         "wires": [
             [],
             [],
-            [
-                "63a860212b3c59e3"
-            ]
-        ]
-    },
-    {
-        "id": "f559b5d16520412f",
-        "type": "ui-markdown",
-        "z": "f8aa3235cf2ec5d8",
-        "group": "ff945a6df9c02dbf",
-        "name": "",
-        "order": 1,
-        "width": "9",
-        "height": "1",
-        "content": "```\n{{ msg?.payload }}\n```",
-        "className": "",
-        "x": 1110,
-        "y": 2220,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "63a860212b3c59e3",
-        "type": "exec",
-        "z": "f8aa3235cf2ec5d8",
-        "command": "nmcli device show usb0|grep -v '\\(DEVICE\\|TYPE\\|HWADDR\\|MTU\\|PATH\\|ROUTE\\|GATEWAY\\)'",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 630,
-        "y": 2220,
-        "wires": [
-            [
-                "f559b5d16520412f"
-            ],
-            [],
             []
         ]
     },
@@ -3267,7 +3221,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "3600",
+        "repeat": "60",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
@@ -3278,8 +3232,10 @@
         "y": 2280,
         "wires": [
             [
-                "63a860212b3c59e3",
-                "8b577b52f92292fb"
+                "8b577b52f92292fb",
+                "f7fa1f90ac7dc8dc",
+                "ff9a232bf595f192",
+                "38a3057ab1638348"
             ]
         ]
     },
@@ -3327,9 +3283,7 @@
         "wires": [
             [],
             [],
-            [
-                "63a860212b3c59e3"
-            ]
+            []
         ]
     },
     {
@@ -3666,7 +3620,7 @@
         "width": 0,
         "height": 0,
         "head": "",
-        "format": "<template>\n    <Teleport v-if=\"mounted\" to=\"#app-bar-actions\">\n        <v-icon icon=\"mdi-water\" color=\"#ffffff55\"></v-icon>\n        <span color=\"#ffffff\" style=\"font-size: 1.25rem\">{{water_pump_temperature}} ºC</span>\n        &nbsp;&nbsp;\n        <v-icon icon=\"mdi-battery-high\" color=\"#ffffff55\"></v-icon>\n        <span color=\"#ffffff\" style=\"font-size: 1.25rem\">{{battery_temperature}} ºC</span>\n        &nbsp;&nbsp;\n        <v-icon icon=\"mdi-raspberry-pi\" color=\"#ffffff55\"></v-icon>\n        <span color=\"#ffffff\" style=\"font-size: 1.25rem\">{{cpu_temperature}} ºC</span>        \n        &nbsp;&nbsp;\n        <v-icon v-if=\"is_connected_to_wifi\" icon=\"mdi-signal-cellular-3\" color=\"#ffffff\"></v-icon>\n        <v-icon v-if=\"!is_connected_to_venus\" icon=\"mdi-alert\" color=\"#ffffff\"></v-icon>\n        &nbsp;&nbsp;\n    </Teleport>\n</template>\n<script>\n    export default {\n        data() {\n            return {\n                mounted: false,\n                is_connected_to_wifi: true,\n                is_connected_to_venus: false,\n                cpu_temperature: \"0.0\",\n                battery_temperature: \"0.0\",\n                water_pump_temperature: \"0.0\"\n            }\n        },\n        mounted() {\n            this.mounted = true\n        },\n        watch: {\n            msg: function() {\n                this.is_connected_to_wifi = this.msg.payload.wifi_network_name?.length > 0 ?? false\n                this.is_connected_to_venus = this.msg.payload.is_alive ?? false\n                this.cpu_temperature = this.msg.payload.cpu_temperature ?? \"0.0\"\n                this.battery_temperature = this.msg.payload.battery_temperature ?? \"0.0\"\n                this.water_pump_temperature = this.msg.payload.water_pump_temperature ?? \"0.0\"\n            }\n        }\n    }\n</script>",
+        "format": "<template>\n    <Teleport v-if=\"mounted\" to=\"#app-bar-actions\">\n        <v-icon icon=\"mdi-water\" color=\"#ffffff55\"></v-icon>\n        <span color=\"#ffffff\" style=\"font-size: 1.25rem\">{{water_pump_temperature}} ºC</span>\n        &nbsp;&nbsp;\n        <v-icon icon=\"mdi-battery-high\" color=\"#ffffff55\"></v-icon>\n        <span color=\"#ffffff\" style=\"font-size: 1.25rem\">{{battery_temperature}} ºC</span>\n        &nbsp;&nbsp;\n        <v-icon icon=\"mdi-raspberry-pi\" color=\"#ffffff55\"></v-icon>\n        <span color=\"#ffffff\" style=\"font-size: 1.25rem\">{{cpu_temperature}} ºC</span>        \n        &nbsp;&nbsp;\n        <v-icon v-if=\"is_connected_to_wifi\" icon=\"mdi-wifi\" color=\"#ffffff\"></v-icon>\n        <v-icon v-if=\"is_connected_to_cellular\" icon=\"mdi-signal-cellular-3\" color=\"#ffffff\"></v-icon>\n        <v-icon v-if=\"!is_connected_to_venus\" icon=\"mdi-alert\" color=\"#ffffff\"></v-icon>\n        <v-icon v-if=\"!shelly_plus_uni_status\" icon=\"mdi-lock-off\" color=\"#ffffff\"></v-icon>\n        <v-icon v-if=\"!appletv_status\" icon=\"mdi-television-off\" color=\"#ffffff\"></v-icon>\n        &nbsp;&nbsp;\n    </Teleport>\n</template>\n<script>\n    export default {\n        data() {\n            return {\n                mounted: false,\n                appletv_status: false,\n                shelly_plus_uni_status: false,\n                is_connected_to_wifi: false,\n                is_connected_to_cellular: false,\n                is_connected_to_venus: false,\n                cpu_temperature: \"0.0\",\n                battery_temperature: \"0.0\",\n                water_pump_temperature: \"0.0\"\n            }\n        },\n        mounted() {\n            this.mounted = true\n        },\n        watch: {\n            msg: function() {\n                this.appletv_status = this.msg.payload.appletv_status?.length > 0 ?? false\n                this.shelly_plus_uni_status = this.msg.payload.shelly_plus_uni_status?.length > 0 ?? false\n                this.is_connected_to_cellular = this.msg.payload.cellular_network_name?.length > 0 ?? false\n                this.is_connected_to_wifi = this.msg.payload.wifi_network_name?.length > 0 ?? false\n                this.is_connected_to_venus = this.msg.payload.is_alive ?? false\n                this.cpu_temperature = this.msg.payload.cpu_temperature ?? \"0.0\"\n                this.battery_temperature = this.msg.payload.battery_temperature ?? \"0.0\"\n                this.water_pump_temperature = this.msg.payload.water_pump_temperature ?? \"0.0\"\n            }\n        }\n    }\n</script>",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
@@ -3691,7 +3645,7 @@
         "oldrc": false,
         "name": "",
         "x": 640,
-        "y": 2360,
+        "y": 2320,
         "wires": [
             [
                 "57da5168dfc70ada"
@@ -3742,7 +3696,10 @@
         "y": 2360,
         "wires": [
             [
-                "8b577b52f92292fb"
+                "8b577b52f92292fb",
+                "f7fa1f90ac7dc8dc",
+                "ff9a232bf595f192",
+                "38a3057ab1638348"
             ]
         ]
     },
@@ -3777,13 +3734,13 @@
         "id": "57da5168dfc70ada",
         "type": "change",
         "z": "f8aa3235cf2ec5d8",
-        "name": "wifi_network_name",
+        "name": "cellular_network_name",
         "rules": [
             {
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "wifi_network_name",
+                "to": "cellular_network_name",
                 "tot": "str"
             }
         ],
@@ -3792,8 +3749,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1110,
-        "y": 2400,
+        "x": 1140,
+        "y": 2320,
         "wires": [
             [
                 "f0ba03a41bd4a6cf"
@@ -4800,6 +4757,153 @@
         "wires": [
             [
                 "ac8954fd52b8e9dd"
+            ]
+        ]
+    },
+    {
+        "id": "f7fa1f90ac7dc8dc",
+        "type": "exec",
+        "z": "f8aa3235cf2ec5d8",
+        "command": "nmcli device show wlan0|grep 'GENERAL.CONNECTION'|cut -d : -f 2|xargs echo -n|sed -e 's/-//g'",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 640,
+        "y": 2380,
+        "wires": [
+            [
+                "371cbc4d4fb9aa9d"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "371cbc4d4fb9aa9d",
+        "type": "change",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "wifi_network_name",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "wifi_network_name",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1130,
+        "y": 2380,
+        "wires": [
+            [
+                "f0ba03a41bd4a6cf"
+            ]
+        ]
+    },
+    {
+        "id": "ff9a232bf595f192",
+        "type": "exec",
+        "z": "f8aa3235cf2ec5d8",
+        "command": "iw dev wlan0 station dump|grep 78:42:1c:54:6a:58|xargs echo -n|sed -e 's/-//g'",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 580,
+        "y": 2260,
+        "wires": [
+            [
+                "8694c4bb95fb997d"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "8694c4bb95fb997d",
+        "type": "change",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "shelly_plus_uni_status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "shelly_plus_uni_status",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1140,
+        "y": 2260,
+        "wires": [
+            [
+                "f0ba03a41bd4a6cf"
+            ]
+        ]
+    },
+    {
+        "id": "38a3057ab1638348",
+        "type": "exec",
+        "z": "f8aa3235cf2ec5d8",
+        "command": "iw dev wlan0 station dump|grep c8:69:cd:03:64:af|xargs echo -n|sed -e 's/-//g'",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 580,
+        "y": 2200,
+        "wires": [
+            [
+                "28ebcaa84c126681"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "28ebcaa84c126681",
+        "type": "change",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "appletv_status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "appletv_status",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1120,
+        "y": 2200,
+        "wires": [
+            [
+                "f0ba03a41bd4a6cf"
             ]
         ]
     }
