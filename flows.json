@@ -681,6 +681,63 @@
         "contextStore": true
     },
     {
+        "id": "17ca444f2390bfbd",
+        "type": "homekit-bridge",
+        "bridgeName": "iSmove HK Bridge",
+        "pinCode": "9819-1223",
+        "port": "",
+        "advertiser": "avahi",
+        "allowInsecureRequest": false,
+        "manufacturer": "NRCHKB",
+        "model": "1.7.3",
+        "serialNo": "Default Serial Number",
+        "firmwareRev": "1.7.3",
+        "hardwareRev": "1.7.3",
+        "softwareRev": "1.7.3",
+        "bind": "[\"eth0\",\"wlan0\"]",
+        "bindType": "json",
+        "customMdnsConfig": false,
+        "mdnsMulticast": true,
+        "mdnsInterface": "192.168.43.1",
+        "mdnsPort": "5353",
+        "mdnsIp": "224.0.0.251",
+        "mdnsTtl": "255",
+        "mdnsLoopback": true,
+        "mdnsReuseAddr": true,
+        "allowMessagePassthrough": false
+    },
+    {
+        "id": "99f2f06b3ac0711d",
+        "type": "mqtt-broker",
+        "name": "Aedes @ localhost",
+        "broker": "localhost",
+        "port": "1885",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
         "id": "322d6acb8e1cc698",
         "type": "ui-radio-group",
         "z": "f8aa3235cf2ec5d8",
@@ -3971,7 +4028,7 @@
         "targetType": "msg",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 1100,
+        "x": 1080,
         "y": 3000,
         "wires": []
     },
@@ -4010,7 +4067,8 @@
         "path": "/Dc/0/Temperature",
         "serviceObj": {
             "service": "com.victronenergy.vebus/276",
-            "name": "Multiplus"
+            "name": "Multiplus",
+            "communityTag": "vebus"
         },
         "pathObj": {
             "path": "/Dc/0/Temperature",
@@ -4021,13 +4079,18 @@
         "onlyChanges": false,
         "roundValues": "1",
         "outputs": 1,
+        "conditionalMode": false,
+        "outputTrue": "",
+        "outputFalse": "",
+        "debounce": "",
         "x": 200,
         "y": 3000,
         "wires": [
             [
                 "93a8c4d27f4844b1",
                 "0cddfe52496e0802",
-                "8c8a117b2aa58552"
+                "8c8a117b2aa58552",
+                "c24814e091735bfa"
             ]
         ]
     },
@@ -4052,7 +4115,8 @@
         "path": "/Temperature",
         "serviceObj": {
             "service": "com.victronenergy.temperature/24",
-            "name": "Water Pump"
+            "name": "Water Pump",
+            "communityTag": "temperature"
         },
         "pathObj": {
             "path": "/Temperature",
@@ -4060,16 +4124,21 @@
             "name": "Temperature (°C)"
         },
         "name": "",
-        "onlyChanges": true,
+        "onlyChanges": false,
         "roundValues": "1",
         "outputs": 1,
+        "conditionalMode": false,
+        "outputTrue": "",
+        "outputFalse": "",
+        "debounce": "",
         "x": 190,
         "y": 3100,
         "wires": [
             [
                 "6cca4289cba7847c",
                 "9385f51bc3383276",
-                "0c12b0ce814b5f25"
+                "0c12b0ce814b5f25",
+                "72555ae248067897"
             ]
         ]
     },
@@ -4086,7 +4155,7 @@
         "targetType": "msg",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 1110,
+        "x": 1090,
         "y": 3100,
         "wires": []
     },
@@ -4904,6 +4973,1809 @@
         "wires": [
             [
                 "f0ba03a41bd4a6cf"
+            ]
+        ]
+    },
+    {
+        "id": "ae706110288b4fdb",
+        "type": "homekit-service",
+        "z": "f8aa3235cf2ec5d8",
+        "isParent": true,
+        "hostType": "0",
+        "bridge": "17ca444f2390bfbd",
+        "accessoryId": "",
+        "parentService": "",
+        "name": "Water Pump",
+        "serviceName": "TemperatureSensor",
+        "topic": "",
+        "filter": false,
+        "manufacturer": "NRCHKB",
+        "model": "1.7.3",
+        "serialNo": "Default Serial Number",
+        "firmwareRev": "1.7.3",
+        "hardwareRev": "1.7.3",
+        "softwareRev": "1.7.3",
+        "cameraConfigVideoProcessor": "ffmpeg",
+        "cameraConfigSource": "",
+        "cameraConfigStillImageSource": "",
+        "cameraConfigMaxStreams": 2,
+        "cameraConfigMaxWidth": 1280,
+        "cameraConfigMaxHeight": 720,
+        "cameraConfigMaxFPS": 10,
+        "cameraConfigMaxBitrate": 300,
+        "cameraConfigVideoCodec": "libx264",
+        "cameraConfigAudioCodec": "libfdk_aac",
+        "cameraConfigAudio": false,
+        "cameraConfigPacketSize": 1316,
+        "cameraConfigVerticalFlip": false,
+        "cameraConfigHorizontalFlip": false,
+        "cameraConfigMapVideo": "0:0",
+        "cameraConfigMapAudio": "0:1",
+        "cameraConfigVideoFilter": "scale=1280:720",
+        "cameraConfigAdditionalCommandLine": "-tune zerolatency",
+        "cameraConfigDebug": false,
+        "cameraConfigSnapshotOutput": "disabled",
+        "cameraConfigInterfaceName": "",
+        "characteristicProperties": "{}",
+        "waitForSetupMsg": false,
+        "outputs": 2,
+        "adaptiveLightingOptionsEnable": false,
+        "adaptiveLightingOptionsCustomTemperatureAdjustment": "",
+        "x": 1490,
+        "y": 3100,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "96f6e4d46651809f",
+        "type": "homekit-service",
+        "z": "f8aa3235cf2ec5d8",
+        "isParent": true,
+        "hostType": "0",
+        "bridge": "17ca444f2390bfbd",
+        "accessoryId": "",
+        "parentService": "",
+        "name": "Battery",
+        "serviceName": "TemperatureSensor",
+        "topic": "",
+        "filter": false,
+        "manufacturer": "NRCHKB",
+        "model": "1.7.3",
+        "serialNo": "Default Serial Number",
+        "firmwareRev": "1.7.3",
+        "hardwareRev": "1.7.3",
+        "softwareRev": "1.7.3",
+        "cameraConfigVideoProcessor": "ffmpeg",
+        "cameraConfigSource": "",
+        "cameraConfigStillImageSource": "",
+        "cameraConfigMaxStreams": 2,
+        "cameraConfigMaxWidth": 1280,
+        "cameraConfigMaxHeight": 720,
+        "cameraConfigMaxFPS": 10,
+        "cameraConfigMaxBitrate": 300,
+        "cameraConfigVideoCodec": "libx264",
+        "cameraConfigAudioCodec": "libfdk_aac",
+        "cameraConfigAudio": false,
+        "cameraConfigPacketSize": 1316,
+        "cameraConfigVerticalFlip": false,
+        "cameraConfigHorizontalFlip": false,
+        "cameraConfigMapVideo": "0:0",
+        "cameraConfigMapAudio": "0:1",
+        "cameraConfigVideoFilter": "scale=1280:720",
+        "cameraConfigAdditionalCommandLine": "-tune zerolatency",
+        "cameraConfigDebug": false,
+        "cameraConfigSnapshotOutput": "disabled",
+        "cameraConfigInterfaceName": "",
+        "characteristicProperties": "{}",
+        "waitForSetupMsg": false,
+        "outputs": 2,
+        "adaptiveLightingOptionsEnable": false,
+        "adaptiveLightingOptionsCustomTemperatureAdjustment": "",
+        "x": 1480,
+        "y": 3000,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c24814e091735bfa",
+        "type": "change",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"CurrentTemperature\": payload}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1320,
+        "y": 3000,
+        "wires": [
+            [
+                "96f6e4d46651809f"
+            ]
+        ]
+    },
+    {
+        "id": "72555ae248067897",
+        "type": "change",
+        "z": "f8aa3235cf2ec5d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"CurrentTemperature\": payload}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1320,
+        "y": 3100,
+        "wires": [
+            [
+                "ae706110288b4fdb"
+            ]
+        ]
+    },
+    {
+        "id": "3ca7dc0ea32d71de",
+        "type": "homekit-service",
+        "z": "2a88d4a90841add0",
+        "d": true,
+        "isParent": true,
+        "hostType": "0",
+        "bridge": "17ca444f2390bfbd",
+        "accessoryId": "",
+        "parentService": "",
+        "name": "Door Lock",
+        "serviceName": "LockMechanism",
+        "topic": "",
+        "filter": false,
+        "manufacturer": "NRCHKB",
+        "model": "1.7.3",
+        "serialNo": "Default Serial Number",
+        "firmwareRev": "1.7.3",
+        "hardwareRev": "1.7.3",
+        "softwareRev": "1.7.3",
+        "cameraConfigVideoProcessor": "ffmpeg",
+        "cameraConfigSource": "",
+        "cameraConfigStillImageSource": "",
+        "cameraConfigMaxStreams": 2,
+        "cameraConfigMaxWidth": 1280,
+        "cameraConfigMaxHeight": 720,
+        "cameraConfigMaxFPS": 10,
+        "cameraConfigMaxBitrate": 300,
+        "cameraConfigVideoCodec": "libx264",
+        "cameraConfigAudioCodec": "libfdk_aac",
+        "cameraConfigAudio": false,
+        "cameraConfigPacketSize": 1316,
+        "cameraConfigVerticalFlip": false,
+        "cameraConfigHorizontalFlip": false,
+        "cameraConfigMapVideo": "0:0",
+        "cameraConfigMapAudio": "0:1",
+        "cameraConfigVideoFilter": "scale=1280:720",
+        "cameraConfigAdditionalCommandLine": "-tune zerolatency",
+        "cameraConfigDebug": false,
+        "cameraConfigSnapshotOutput": "disabled",
+        "cameraConfigInterfaceName": "",
+        "characteristicProperties": "{}",
+        "waitForSetupMsg": false,
+        "outputs": 2,
+        "adaptiveLightingOptionsEnable": false,
+        "adaptiveLightingOptionsCustomTemperatureAdjustment": "",
+        "x": 550,
+        "y": 280,
+        "wires": [
+            [
+                "f850033a2088845c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "aa870e03bca3d976",
+        "type": "homekit-service",
+        "z": "2a88d4a90841add0",
+        "d": true,
+        "isParent": false,
+        "hostType": "0",
+        "bridge": "",
+        "accessoryId": "",
+        "parentService": "3ca7dc0ea32d71de",
+        "name": "Door",
+        "serviceName": "ContactSensor",
+        "topic": "",
+        "filter": false,
+        "manufacturer": "NRCHKB",
+        "model": "1.7.3",
+        "serialNo": "Default Serial Number",
+        "firmwareRev": "1.7.3",
+        "hardwareRev": "1.7.3",
+        "softwareRev": "1.7.3",
+        "cameraConfigVideoProcessor": "ffmpeg",
+        "cameraConfigSource": "",
+        "cameraConfigStillImageSource": "",
+        "cameraConfigMaxStreams": 2,
+        "cameraConfigMaxWidth": 1280,
+        "cameraConfigMaxHeight": 720,
+        "cameraConfigMaxFPS": 10,
+        "cameraConfigMaxBitrate": 300,
+        "cameraConfigVideoCodec": "libx264",
+        "cameraConfigAudioCodec": "libfdk_aac",
+        "cameraConfigAudio": false,
+        "cameraConfigPacketSize": 1316,
+        "cameraConfigVerticalFlip": false,
+        "cameraConfigHorizontalFlip": false,
+        "cameraConfigMapVideo": "0:0",
+        "cameraConfigMapAudio": "0:1",
+        "cameraConfigVideoFilter": "scale=1280:720",
+        "cameraConfigAdditionalCommandLine": "-tune zerolatency",
+        "cameraConfigDebug": false,
+        "cameraConfigSnapshotOutput": "disabled",
+        "cameraConfigInterfaceName": "",
+        "characteristicProperties": "{}",
+        "waitForSetupMsg": false,
+        "outputs": 2,
+        "adaptiveLightingOptionsEnable": false,
+        "adaptiveLightingOptionsCustomTemperatureAdjustment": "",
+        "x": 530,
+        "y": 360,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "1ab197ca47ebd58d",
+        "type": "inject",
+        "z": "2a88d4a90841add0",
+        "name": "Set Locked",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"LockCurrentState\":1,\"LockTargetState\":1}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 360,
+        "wires": [
+            [
+                "3ca7dc0ea32d71de",
+                "9cf3204feb1f2376"
+            ]
+        ]
+    },
+    {
+        "id": "0ae448e557952e15",
+        "type": "inject",
+        "z": "2a88d4a90841add0",
+        "name": "Set Unlocked",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"LockCurrentState\":0,\"LockTargetState\":0}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 400,
+        "wires": [
+            [
+                "3ca7dc0ea32d71de",
+                "9cf3204feb1f2376"
+            ]
+        ]
+    },
+    {
+        "id": "d1bfa9ce4707977a",
+        "type": "inject",
+        "z": "2a88d4a90841add0",
+        "name": "Set Closed",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"ContactSensorState\":0}",
+        "payloadType": "json",
+        "x": 260,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2846fbced22b0b5b",
+        "type": "inject",
+        "z": "2a88d4a90841add0",
+        "name": "Set Open",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"ContactSensorState\":1}",
+        "payloadType": "json",
+        "x": 260,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f850033a2088845c",
+        "type": "switch",
+        "z": "2a88d4a90841add0",
+        "name": "HK request?",
+        "property": "hap",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 280,
+        "wires": [
+            [
+                "b228e3cc0901541d",
+                "11573f6903e2e46d"
+            ]
+        ]
+    },
+    {
+        "id": "b228e3cc0901541d",
+        "type": "debug",
+        "z": "2a88d4a90841add0",
+        "name": "payload.LockTargetState",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload.LockTargetState",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8348269b1a9fe7b0",
+        "type": "shelly-gen2",
+        "z": "2a88d4a90841add0",
+        "hostname": "192.168.43.3",
+        "description": "Shelly Plus Uni Door Lock",
+        "mode": "polling",
+        "verbose": false,
+        "server": "",
+        "outputmode": "event",
+        "uploadretryinterval": 5000,
+        "pollinginterval": "10000",
+        "pollstatus": true,
+        "getstatusoncommand": true,
+        "devicetype": "SNSN-0043X",
+        "devicetypemustmatchexactly": true,
+        "captureblutooth": false,
+        "outputs": 1,
+        "x": 810,
+        "y": 760,
+        "wires": [
+            [
+                "f56eb11862011bdb",
+                "d6655abcda1a48a5"
+            ]
+        ]
+    },
+    {
+        "id": "f56eb11862011bdb",
+        "type": "debug",
+        "z": "2a88d4a90841add0",
+        "name": "Voltmeter",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload.voltmeter100",
+        "targetType": "msg",
+        "statusVal": "payload.voltmeter100",
+        "statusType": "msg",
+        "x": 1060,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "404524ffbe11c3dc",
+        "type": "change",
+        "z": "2a88d4a90841add0",
+        "name": "Trigger Output 0 (450ms)",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"method\":\"Switch.Set\",\"parameters\":{\"id\":0,\"on\":true}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 680,
+        "wires": [
+            [
+                "8348269b1a9fe7b0"
+            ]
+        ]
+    },
+    {
+        "id": "79ba4b72ccf00ab0",
+        "type": "change",
+        "z": "2a88d4a90841add0",
+        "name": "Trigger Output 0 (250ms)",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"method\":\"Switch.Set\",\"parameters\":{\"id\":0,\"on\":true,\"toggle_after\":0.25}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 860,
+        "wires": [
+            [
+                "8348269b1a9fe7b0"
+            ]
+        ]
+    },
+    {
+        "id": "0f1d8345cab84ed0",
+        "type": "comment",
+        "z": "2a88d4a90841add0",
+        "name": "Output 0 - Lock signal to Door",
+        "info": "Input 0 - Lock signal from BCM\nInput 1 - Unlock signal from BCM\n\nVoltmeter ~ 0.2V - Door Closed\nVoltmeter ~ 2.9V - Door Open\n\nOutput 0 -> Lock signal to door actuator\nOutput 1 -> Unlock signal to door actuator",
+        "x": 640,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "d2db8b1de3b1aea9",
+        "type": "comment",
+        "z": "2a88d4a90841add0",
+        "name": "Output 1 - Unlock signal to Door",
+        "info": "Input 0 - Lock signal from BCM\nInput 1 - Unlock signal from BCM\n\nVoltmeter ~ 0.2V - Door Closed\nVoltmeter ~ 2.9V - Door Open\n\nOutput 0 -> Lock signal to door actuator\nOutput 1 -> Unlock signal to door actuator",
+        "x": 650,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "d1c4f55dd6ffd867",
+        "type": "comment",
+        "z": "2a88d4a90841add0",
+        "name": "Voltmeter ~ 0.2V (Door Closed) ~ 2.9V (Door Open)",
+        "info": "Input 0 - Lock signal from BCM\nInput 1 - Unlock signal from BCM\n\nVoltmeter ~ 0.2V - Door Closed\nVoltmeter ~ 2.9V - Door Open\n\nOutput 0 -> Lock signal to door actuator\nOutput 1 -> Unlock signal to door actuator",
+        "x": 710,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "5c945dfc85550880",
+        "type": "comment",
+        "z": "2a88d4a90841add0",
+        "name": "Output 0 -> Lock signal to door actuator",
+        "info": "Input 0 - Lock signal from BCM\nInput 1 - Unlock signal from BCM\n\nVoltmeter ~ 0.2V - Door Closed\nVoltmeter ~ 2.9V - Door Open\n\nOutput 0 -> Lock signal to door actuator\nOutput 1 -> Unlock signal to door actuator",
+        "x": 280,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "1c4c20944d0b9d6a",
+        "type": "comment",
+        "z": "2a88d4a90841add0",
+        "name": "Output 1 -> Double Unlock signal to door actuator",
+        "info": "Input 0 - Lock signal from BCM\nInput 1 - Unlock signal from BCM\n\nVoltmeter ~ 0.2V - Door Closed\nVoltmeter ~ 2.9V - Door Open\n\nOutput 0 -> Lock signal to door actuator\nOutput 1 -> Unlock signal to door actuator",
+        "x": 310,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "01d3977f867595b0",
+        "type": "aedes broker",
+        "z": "2a88d4a90841add0",
+        "name": "",
+        "mqtt_port": "1885",
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": "",
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "persistence_bind": "memory",
+        "dburl": "",
+        "persist_to_file": false,
+        "usetls": false,
+        "x": 570,
+        "y": 180,
+        "wires": [
+            [
+                "3c1422c05970b968"
+            ],
+            [
+                "14178ea3d50f729b"
+            ]
+        ]
+    },
+    {
+        "id": "3c1422c05970b968",
+        "type": "debug",
+        "z": "2a88d4a90841add0",
+        "name": "MQTT Events",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "14178ea3d50f729b",
+        "type": "debug",
+        "z": "2a88d4a90841add0",
+        "name": "MQTT Publish",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "4d2dfc331127239a",
+        "type": "mqtt in",
+        "z": "2a88d4a90841add0",
+        "name": "",
+        "topic": "shellyplusuni-78421c546a58/events/rpc",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "99f2f06b3ac0711d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 1100,
+        "wires": [
+            [
+                "5011a442e14c971b",
+                "d782ac5debea852c",
+                "322c37971a56c6f0",
+                "7548cfc5c6c3f93e"
+            ]
+        ]
+    },
+    {
+        "id": "5011a442e14c971b",
+        "type": "debug",
+        "z": "2a88d4a90841add0",
+        "name": "MQTT RPC",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "d782ac5debea852c",
+        "type": "switch",
+        "z": "2a88d4a90841add0",
+        "name": "Output 0 ?",
+        "property": "payload.params[\"switch:0\"]",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 650,
+        "y": 1100,
+        "wires": [
+            [
+                "ee6c707d0b31825d",
+                "dcba29cfc083d2e0"
+            ]
+        ]
+    },
+    {
+        "id": "322c37971a56c6f0",
+        "type": "switch",
+        "z": "2a88d4a90841add0",
+        "name": "Output 1 ?",
+        "property": "payload.params[\"switch:1\"]",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 650,
+        "y": 1200,
+        "wires": [
+            [
+                "4dc7c92ac6e206be",
+                "348ce087e26ee668"
+            ]
+        ]
+    },
+    {
+        "id": "ee6c707d0b31825d",
+        "type": "debug",
+        "z": "2a88d4a90841add0",
+        "name": "MQTT RPC INPUT 0",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.params",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "4dc7c92ac6e206be",
+        "type": "debug",
+        "z": "2a88d4a90841add0",
+        "name": "MQTT RPC INPUT 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.params",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "8d5a4afaeb03f5ae",
+        "type": "homekit-service",
+        "z": "2a88d4a90841add0",
+        "isParent": true,
+        "hostType": "0",
+        "bridge": "17ca444f2390bfbd",
+        "accessoryId": "",
+        "parentService": "",
+        "name": "Door",
+        "serviceName": "ContactSensor",
+        "topic": "",
+        "filter": false,
+        "manufacturer": "NRCHKB",
+        "model": "1.7.3",
+        "serialNo": "Default Serial Number",
+        "firmwareRev": "1.7.3",
+        "hardwareRev": "1.7.3",
+        "softwareRev": "1.7.3",
+        "cameraConfigVideoProcessor": "ffmpeg",
+        "cameraConfigSource": "",
+        "cameraConfigStillImageSource": "",
+        "cameraConfigMaxStreams": 2,
+        "cameraConfigMaxWidth": 1280,
+        "cameraConfigMaxHeight": 720,
+        "cameraConfigMaxFPS": 10,
+        "cameraConfigMaxBitrate": 300,
+        "cameraConfigVideoCodec": "libx264",
+        "cameraConfigAudioCodec": "libfdk_aac",
+        "cameraConfigAudio": false,
+        "cameraConfigPacketSize": 1316,
+        "cameraConfigVerticalFlip": false,
+        "cameraConfigHorizontalFlip": false,
+        "cameraConfigMapVideo": "0:0",
+        "cameraConfigMapAudio": "0:1",
+        "cameraConfigVideoFilter": "scale=1280:720",
+        "cameraConfigAdditionalCommandLine": "-tune zerolatency",
+        "cameraConfigDebug": false,
+        "cameraConfigSnapshotOutput": "disabled",
+        "cameraConfigInterfaceName": "",
+        "characteristicProperties": "{}",
+        "waitForSetupMsg": false,
+        "outputs": 2,
+        "adaptiveLightingOptionsEnable": false,
+        "adaptiveLightingOptionsCustomTemperatureAdjustment": "",
+        "x": 530,
+        "y": 440,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "9cf3204feb1f2376",
+        "type": "homekit-service",
+        "z": "2a88d4a90841add0",
+        "isParent": false,
+        "hostType": "0",
+        "bridge": "",
+        "accessoryId": "",
+        "parentService": "8d5a4afaeb03f5ae",
+        "name": "Door Lock",
+        "serviceName": "LockMechanism",
+        "topic": "",
+        "filter": false,
+        "manufacturer": "NRCHKB",
+        "model": "1.7.3",
+        "serialNo": "Default Serial Number",
+        "firmwareRev": "1.7.3",
+        "hardwareRev": "1.7.3",
+        "softwareRev": "1.7.3",
+        "cameraConfigVideoProcessor": "ffmpeg",
+        "cameraConfigSource": "",
+        "cameraConfigStillImageSource": "",
+        "cameraConfigMaxStreams": 2,
+        "cameraConfigMaxWidth": 1280,
+        "cameraConfigMaxHeight": 720,
+        "cameraConfigMaxFPS": 10,
+        "cameraConfigMaxBitrate": 300,
+        "cameraConfigVideoCodec": "libx264",
+        "cameraConfigAudioCodec": "libfdk_aac",
+        "cameraConfigAudio": false,
+        "cameraConfigPacketSize": 1316,
+        "cameraConfigVerticalFlip": false,
+        "cameraConfigHorizontalFlip": false,
+        "cameraConfigMapVideo": "0:0",
+        "cameraConfigMapAudio": "0:1",
+        "cameraConfigVideoFilter": "scale=1280:720",
+        "cameraConfigAdditionalCommandLine": "-tune zerolatency",
+        "cameraConfigDebug": false,
+        "cameraConfigSnapshotOutput": "disabled",
+        "cameraConfigInterfaceName": "",
+        "characteristicProperties": "{}",
+        "waitForSetupMsg": false,
+        "outputs": 2,
+        "adaptiveLightingOptionsEnable": false,
+        "adaptiveLightingOptionsCustomTemperatureAdjustment": "",
+        "x": 550,
+        "y": 520,
+        "wires": [
+            [
+                "7ece1a92889333c8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d6655abcda1a48a5",
+        "type": "switch",
+        "z": "2a88d4a90841add0",
+        "name": "closed?",
+        "property": "payload.voltmeter100.voltage",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "1.5",
+                "vt": "num"
+            },
+            {
+                "t": "gt",
+                "v": "1.5",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1060,
+        "y": 760,
+        "wires": [
+            [
+                "1a2d1d71e5a9345d"
+            ],
+            [
+                "8df01522a53152ed"
+            ]
+        ]
+    },
+    {
+        "id": "1a2d1d71e5a9345d",
+        "type": "change",
+        "z": "2a88d4a90841add0",
+        "name": "set door is closed",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"ContactSensorState\":0}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "isDoorClosed",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1290,
+        "y": 720,
+        "wires": [
+            [
+                "19f2936a38cd1dae",
+                "d0fd794f77a3449d",
+                "6ec0e5599a2f81f5"
+            ]
+        ]
+    },
+    {
+        "id": "8df01522a53152ed",
+        "type": "change",
+        "z": "2a88d4a90841add0",
+        "name": "set door is open",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"ContactSensorState\":1}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "isDoorClosed",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1280,
+        "y": 800,
+        "wires": [
+            [
+                "5878980fa488a0c5",
+                "01d07f2c2b5b6368",
+                "0fcd7ad877a1d3f3",
+                "348ce087e26ee668"
+            ]
+        ]
+    },
+    {
+        "id": "19f2936a38cd1dae",
+        "type": "link out",
+        "z": "2a88d4a90841add0",
+        "name": "link out 10",
+        "mode": "link",
+        "links": [
+            "66b1c47a4574c896"
+        ],
+        "x": 1455,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "66b1c47a4574c896",
+        "type": "link in",
+        "z": "2a88d4a90841add0",
+        "name": "link in 10",
+        "links": [
+            "19f2936a38cd1dae"
+        ],
+        "x": 425,
+        "y": 340,
+        "wires": [
+            [
+                "aa870e03bca3d976"
+            ]
+        ]
+    },
+    {
+        "id": "d0fd794f77a3449d",
+        "type": "link out",
+        "z": "2a88d4a90841add0",
+        "name": "link out 11",
+        "mode": "link",
+        "links": [
+            "ca8f5a997407e44b"
+        ],
+        "x": 1455,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "ca8f5a997407e44b",
+        "type": "link in",
+        "z": "2a88d4a90841add0",
+        "name": "link in 11",
+        "links": [
+            "d0fd794f77a3449d"
+        ],
+        "x": 425,
+        "y": 420,
+        "wires": [
+            [
+                "8d5a4afaeb03f5ae"
+            ]
+        ]
+    },
+    {
+        "id": "5878980fa488a0c5",
+        "type": "link out",
+        "z": "2a88d4a90841add0",
+        "name": "link out 12",
+        "mode": "link",
+        "links": [
+            "09cc8309bae57b4a"
+        ],
+        "x": 1455,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "09cc8309bae57b4a",
+        "type": "link in",
+        "z": "2a88d4a90841add0",
+        "name": "link in 12",
+        "links": [
+            "5878980fa488a0c5"
+        ],
+        "x": 425,
+        "y": 380,
+        "wires": [
+            [
+                "aa870e03bca3d976"
+            ]
+        ]
+    },
+    {
+        "id": "01d07f2c2b5b6368",
+        "type": "link out",
+        "z": "2a88d4a90841add0",
+        "name": "link out 13",
+        "mode": "link",
+        "links": [
+            "c934600eb3a90a0f"
+        ],
+        "x": 1455,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "c934600eb3a90a0f",
+        "type": "link in",
+        "z": "2a88d4a90841add0",
+        "name": "link in 13",
+        "links": [
+            "01d07f2c2b5b6368"
+        ],
+        "x": 425,
+        "y": 460,
+        "wires": [
+            [
+                "8d5a4afaeb03f5ae"
+            ]
+        ]
+    },
+    {
+        "id": "7ece1a92889333c8",
+        "type": "switch",
+        "z": "2a88d4a90841add0",
+        "name": "HK request?",
+        "property": "hap",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 520,
+        "wires": [
+            [
+                "e16df26b6238e4f5",
+                "11573f6903e2e46d"
+            ]
+        ]
+    },
+    {
+        "id": "e16df26b6238e4f5",
+        "type": "debug",
+        "z": "2a88d4a90841add0",
+        "name": "payload.LockTargetState",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload.LockTargetState",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "11573f6903e2e46d",
+        "type": "switch",
+        "z": "2a88d4a90841add0",
+        "name": "Examine LockTargetState",
+        "property": "payload.LockTargetState",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1030,
+        "y": 400,
+        "wires": [
+            [
+                "7c2ad1585013fe3d"
+            ],
+            [
+                "4e4b045b58a14a42"
+            ]
+        ]
+    },
+    {
+        "id": "6ec0e5599a2f81f5",
+        "type": "debug",
+        "z": "2a88d4a90841add0",
+        "name": "setting door to closed",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload.ContactSensorState",
+        "statusType": "msg",
+        "x": 1640,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "0fcd7ad877a1d3f3",
+        "type": "debug",
+        "z": "2a88d4a90841add0",
+        "name": "setting door to open",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload.ContactSensorState",
+        "statusType": "msg",
+        "x": 1640,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "4e4b045b58a14a42",
+        "type": "link out",
+        "z": "2a88d4a90841add0",
+        "name": "link out 14",
+        "mode": "link",
+        "links": [
+            "c3eddb2c7c363eb0"
+        ],
+        "x": 1185,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "c3eddb2c7c363eb0",
+        "type": "link in",
+        "z": "2a88d4a90841add0",
+        "name": "link in 14",
+        "links": [
+            "4e4b045b58a14a42"
+        ],
+        "x": 115,
+        "y": 700,
+        "wires": [
+            [
+                "4fa1de72ab05c96a"
+            ]
+        ]
+    },
+    {
+        "id": "7c2ad1585013fe3d",
+        "type": "link out",
+        "z": "2a88d4a90841add0",
+        "name": "link out 15",
+        "mode": "link",
+        "links": [
+            "d0b3c0873590eca8"
+        ],
+        "x": 1185,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "d0b3c0873590eca8",
+        "type": "link in",
+        "z": "2a88d4a90841add0",
+        "name": "link in 15",
+        "links": [
+            "7c2ad1585013fe3d"
+        ],
+        "x": 115,
+        "y": 860,
+        "wires": [
+            [
+                "79ba4b72ccf00ab0",
+                "b3d563490fb8c5b5",
+                "1df511e3f4c3c225"
+            ]
+        ]
+    },
+    {
+        "id": "ef1dde894ee5564f",
+        "type": "change",
+        "z": "2a88d4a90841add0",
+        "name": "set door to locked",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"LockCurrentState\":1,\"LockTargetState\":1}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1390,
+        "y": 1000,
+        "wires": [
+            [
+                "9978e9fbd7133703",
+                "b3be2bb2402df40c"
+            ]
+        ]
+    },
+    {
+        "id": "348ce087e26ee668",
+        "type": "change",
+        "z": "2a88d4a90841add0",
+        "name": "set door to unlocked",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"LockCurrentState\":0,\"LockTargetState\":0}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1400,
+        "y": 1100,
+        "wires": [
+            [
+                "53583013d4c938c2",
+                "b3be2bb2402df40c"
+            ]
+        ]
+    },
+    {
+        "id": "7548cfc5c6c3f93e",
+        "type": "switch",
+        "z": "2a88d4a90841add0",
+        "name": "Voltmeter 100 ?",
+        "property": "payload.params[\"voltmeter:100\"]",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 660,
+        "y": 1300,
+        "wires": [
+            [
+                "cd4ace3c792aeca6",
+                "983d0fa3aa9743d3"
+            ]
+        ]
+    },
+    {
+        "id": "cd4ace3c792aeca6",
+        "type": "debug",
+        "z": "2a88d4a90841add0",
+        "name": "MQTT RPC VOLTMETER 100",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.params",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "983d0fa3aa9743d3",
+        "type": "switch",
+        "z": "2a88d4a90841add0",
+        "name": "closed?",
+        "property": "payload.params[\"voltmeter:100\"].voltage",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "1.5",
+                "vt": "num"
+            },
+            {
+                "t": "gt",
+                "v": "1.5",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1100,
+        "y": 1300,
+        "wires": [
+            [
+                "1a2d1d71e5a9345d"
+            ],
+            [
+                "8df01522a53152ed"
+            ]
+        ]
+    },
+    {
+        "id": "98a67e7e2a5e0c2a",
+        "type": "link out",
+        "z": "2a88d4a90841add0",
+        "name": "link out 16",
+        "mode": "link",
+        "links": [
+            "d87edc12e120676e"
+        ],
+        "x": 1825,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "d87edc12e120676e",
+        "type": "link in",
+        "z": "2a88d4a90841add0",
+        "name": "link in 16",
+        "links": [
+            "98a67e7e2a5e0c2a"
+        ],
+        "x": 425,
+        "y": 500,
+        "wires": [
+            [
+                "9cf3204feb1f2376"
+            ]
+        ]
+    },
+    {
+        "id": "50e9af82e150aac0",
+        "type": "link out",
+        "z": "2a88d4a90841add0",
+        "name": "link out 17",
+        "mode": "link",
+        "links": [
+            "786a2818fe3a4fca"
+        ],
+        "x": 1825,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "786a2818fe3a4fca",
+        "type": "link in",
+        "z": "2a88d4a90841add0",
+        "name": "link in 17",
+        "links": [
+            "50e9af82e150aac0"
+        ],
+        "x": 425,
+        "y": 540,
+        "wires": [
+            [
+                "9cf3204feb1f2376"
+            ]
+        ]
+    },
+    {
+        "id": "73c81c0af1277b7f",
+        "type": "link out",
+        "z": "2a88d4a90841add0",
+        "name": "link out 18",
+        "mode": "link",
+        "links": [
+            "12b9e59eae1fd454"
+        ],
+        "x": 1825,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "12b9e59eae1fd454",
+        "type": "link in",
+        "z": "2a88d4a90841add0",
+        "name": "link in 18",
+        "links": [
+            "73c81c0af1277b7f"
+        ],
+        "x": 435,
+        "y": 300,
+        "wires": [
+            [
+                "3ca7dc0ea32d71de"
+            ]
+        ]
+    },
+    {
+        "id": "34823cce959dee36",
+        "type": "link out",
+        "z": "2a88d4a90841add0",
+        "name": "link out 19",
+        "mode": "link",
+        "links": [
+            "09b4acaa60012e13"
+        ],
+        "x": 1825,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "09b4acaa60012e13",
+        "type": "link in",
+        "z": "2a88d4a90841add0",
+        "name": "link in 19",
+        "links": [
+            "34823cce959dee36"
+        ],
+        "x": 435,
+        "y": 260,
+        "wires": [
+            [
+                "3ca7dc0ea32d71de"
+            ]
+        ]
+    },
+    {
+        "id": "9978e9fbd7133703",
+        "type": "debug",
+        "z": "2a88d4a90841add0",
+        "name": "setting door to locked",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1980,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "53583013d4c938c2",
+        "type": "debug",
+        "z": "2a88d4a90841add0",
+        "name": "setting door to unlocked",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1990,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "dcba29cfc083d2e0",
+        "type": "switch",
+        "z": "2a88d4a90841add0",
+        "name": "is door closed ?",
+        "property": "isDoorClosed",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1120,
+        "y": 1100,
+        "wires": [
+            [
+                "ef1dde894ee5564f"
+            ],
+            [
+                "348ce087e26ee668"
+            ]
+        ]
+    },
+    {
+        "id": "b3d563490fb8c5b5",
+        "type": "delay",
+        "z": "2a88d4a90841add0",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "90",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 250,
+        "y": 900,
+        "wires": [
+            [
+                "434cc977fce7ae8e"
+            ]
+        ]
+    },
+    {
+        "id": "434cc977fce7ae8e",
+        "type": "change",
+        "z": "2a88d4a90841add0",
+        "name": "Trigger Output 1 (450ms)",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"method\":\"Switch.Set\",\"parameters\":{\"id\":1,\"on\":true}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 900,
+        "wires": [
+            [
+                "8348269b1a9fe7b0"
+            ]
+        ]
+    },
+    {
+        "id": "06779d7f93e34dc2",
+        "type": "inject",
+        "z": "2a88d4a90841add0",
+        "name": "Lock",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 500,
+        "wires": [
+            [
+                "404524ffbe11c3dc"
+            ]
+        ]
+    },
+    {
+        "id": "31becb7356035672",
+        "type": "inject",
+        "z": "2a88d4a90841add0",
+        "name": "Unlock",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 540,
+        "wires": [
+            [
+                "79ba4b72ccf00ab0"
+            ]
+        ]
+    },
+    {
+        "id": "f86b9b0ac7e05888",
+        "type": "comment",
+        "z": "2a88d4a90841add0",
+        "name": "Output 0 -> Short Lock signal to door actuator",
+        "info": "Input 0 - Lock signal from BCM\nInput 1 - Unlock signal from BCM\n\nVoltmeter ~ 0.2V - Door Closed\nVoltmeter ~ 2.9V - Door Open\n\nOutput 0 -> Lock signal to door actuator\nOutput 1 -> Unlock signal to door actuator",
+        "x": 300,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "b3be2bb2402df40c",
+        "type": "trigger",
+        "z": "2a88d4a90841add0",
+        "name": "",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "payl",
+        "duration": "0.5",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1670,
+        "y": 1040,
+        "wires": [
+            [
+                "34823cce959dee36",
+                "98a67e7e2a5e0c2a",
+                "73c81c0af1277b7f",
+                "50e9af82e150aac0"
+            ]
+        ]
+    },
+    {
+        "id": "1df511e3f4c3c225",
+        "type": "delay",
+        "z": "2a88d4a90841add0",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "600",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 250,
+        "y": 940,
+        "wires": [
+            [
+                "b95c526a961061f9"
+            ]
+        ]
+    },
+    {
+        "id": "b95c526a961061f9",
+        "type": "change",
+        "z": "2a88d4a90841add0",
+        "name": "Trigger Output 1 (450ms)",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"method\":\"Switch.Set\",\"parameters\":{\"id\":1,\"on\":true}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 940,
+        "wires": [
+            [
+                "8348269b1a9fe7b0"
+            ]
+        ]
+    },
+    {
+        "id": "4fa1de72ab05c96a",
+        "type": "switch",
+        "z": "2a88d4a90841add0",
+        "name": "is door closed ?",
+        "property": "isDoorClosed",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 260,
+        "y": 700,
+        "wires": [
+            [
+                "404524ffbe11c3dc"
+            ],
+            [
+                "723229c340cce6c8"
+            ]
+        ]
+    },
+    {
+        "id": "723229c340cce6c8",
+        "type": "link out",
+        "z": "2a88d4a90841add0",
+        "name": "link out 20",
+        "mode": "link",
+        "links": [
+            "042bcdf06d95ed54"
+        ],
+        "x": 395,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "042bcdf06d95ed54",
+        "type": "link in",
+        "z": "2a88d4a90841add0",
+        "name": "link in 20",
+        "links": [
+            "723229c340cce6c8"
+        ],
+        "x": 1015,
+        "y": 880,
+        "wires": [
+            [
+                "8df01522a53152ed"
             ]
         ]
     }
